@@ -73,7 +73,7 @@ scalar Float
 """
 A GraphQL Schema defines the capabilities of a GraphQL server. It exposes all
 available types and directives on the server, as well as the entry points for
-query, mutation, and subscription operations.
+type, mutation, and subscription operations.
 """
 type __Schema {
   """A list of all types supported by this server."""
@@ -213,7 +213,7 @@ A Directive can be adjacent to many parts of the GraphQL language, a
 __DirectiveLocation describes one such possible adjacencies.
 """
 enum __DirectiveLocation {
-  """Location adjacent to a query operation."""
+  """Location adjacent to a type operation."""
   QUERY
 
   """Location adjacent to a mutation operation."""
@@ -366,7 +366,7 @@ type PageInfo {
 }
 
 """
-Specify if you want to include or exclude trashed results from a query.
+Specify if you want to include or exclude trashed results from a type.
 """
 enum Trashed {
   """Only return trashed results."""

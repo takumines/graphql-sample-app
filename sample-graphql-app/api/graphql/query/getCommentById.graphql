@@ -1,0 +1,3 @@
+extend type Query {
+    comment(id: ID @eq): Comment @find
+}

@@ -1,0 +1,9 @@
+input createPostInput @validator {
+    title: String!
+    content: String!
+    author_id: ID!
+}
+
+extend type Mutation {
+    createPost(data: createPostInput!): Post
+}

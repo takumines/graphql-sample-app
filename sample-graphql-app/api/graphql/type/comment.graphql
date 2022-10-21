@@ -1,0 +1,7 @@
+type Comment {
+    id: ID
+    reply: String
+    createdAt: DateTime! @rename(attribute: "created_at")
+    updatedAt: DateTime! @rename(attribute: "updated_at")
+    post: Post! @belongsTo
+}
