@@ -5,5 +5,5 @@ input createPostInput @validator {
 }
 
 extend type Mutation {
-    createPost(data: createPostInput!): Post
+    createPost(input: createPostInput!): Post
 }

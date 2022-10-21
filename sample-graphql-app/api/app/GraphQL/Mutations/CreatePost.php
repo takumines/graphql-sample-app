@@ -13,7 +13,7 @@ final class CreatePost
     public function __invoke($_, array $args): Post
     {
         $post = new Post();
-        $post->fill($args['data'])->save();
+        $post->fill($args['input'])->save();
 
         return $post;
     }

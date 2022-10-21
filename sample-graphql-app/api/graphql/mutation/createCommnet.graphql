@@ -1,0 +1,8 @@
+input createCommentInput @validator {
+    reply: String!
+    post_id: ID!
+}
+
+extend type Mutation {
+    createComment(input: createCommentInput!): Comment
+}
