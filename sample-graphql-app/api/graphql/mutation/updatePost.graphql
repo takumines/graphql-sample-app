@@ -1,0 +1,9 @@
+input UpdatePostInput @validator {
+    id: ID!
+    title: String!
+    content: String!
+}
+
+extend type Mutation {
+    updatePost(input: UpdatePostInput! @spread): Post
+}
