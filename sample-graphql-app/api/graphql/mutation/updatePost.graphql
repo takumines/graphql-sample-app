@@ -4,6 +4,6 @@ input UpdatePostInput @validator {
     content: String!
 }
 
-extend type Mutation {
+extend type Mutation @guard {
     updatePost(input: UpdatePostInput! @spread): Post
 }

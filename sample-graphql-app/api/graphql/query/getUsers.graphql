@@ -1,4 +1,4 @@
-extend type Query {
+extend type Query @guard {
     "List multiple users."
     users(
         "Filters by name. Accepts SQL LIKE wildcards `%` and `_`."

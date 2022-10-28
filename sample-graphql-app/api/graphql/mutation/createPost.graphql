@@ -4,6 +4,6 @@ input createPostInput @validator {
     author_id: ID!
 }
 
-extend type Mutation {
+extend type Mutation @guard {
     createPost(input: createPostInput!): Post
 }

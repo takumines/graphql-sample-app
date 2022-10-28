@@ -3,6 +3,6 @@ input createCommentInput @validator {
     post_id: ID!
 }
 
-extend type Mutation {
+extend type Mutation @guard {
     createComment(input: createCommentInput!): Comment
 }

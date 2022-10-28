@@ -1,4 +1,4 @@
-extend type Query {
+extend type Query @guard {
     "Find a single user by an identifying attribute."
     user(
         "Search by primary key."
