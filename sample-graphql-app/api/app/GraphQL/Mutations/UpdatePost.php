@@ -12,7 +12,6 @@ final class UpdatePost
      */
     public function __invoke($_, array $args)
     {
-        logger($args);
         return Post::find($args['id'])->update($args);
     }
 }

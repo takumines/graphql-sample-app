@@ -12,7 +12,9 @@ use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -23,6 +25,7 @@ class User extends Authenticatable implements JWTSubject
         'name',
         'email',
         'password',
+        'avatar_url',
     ];
 
     /**
@@ -50,6 +53,15 @@ class User extends Authenticatable implements JWTSubject
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class, 'author_id');
+    }
+
+    /**
+     * @param $value
+     * @return string
+     */
+    public function getAvatarUrlAttribute($value): string
+    {
+        return asset($value);
     }
 
     /**

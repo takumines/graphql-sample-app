@@ -1,0 +1,10 @@
+input updateUserInput @validator {
+    id: ID!
+    name: String
+    email: String
+    file: Upload
+}
+
+extend type Mutation @guard {
+    updateUser(input: updateUserInput! @spread): User!
+}
