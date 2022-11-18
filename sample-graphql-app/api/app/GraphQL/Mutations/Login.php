@@ -14,7 +14,6 @@ final class Login
     public function __invoke($_, array $args)
     {
         $token = auth('api')->attempt($args);
-        logger($token);
         if (!$token) {
             throw new AuthenticationException('Unauthorized', ['api']);
         }
