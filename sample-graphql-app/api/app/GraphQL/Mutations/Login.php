@@ -2,7 +2,9 @@
 
 namespace App\GraphQL\Mutations;
 
-use Nuwave\Lighthouse\Exceptions\AuthenticationException;
+use App\Exceptions\AuthenticationException;
+use App\Models\User;
+
 
 final class Login
 {
@@ -15,7 +17,7 @@ final class Login
     {
         $token = auth('api')->attempt($args);
         if (!$token) {
-            throw new AuthenticationException('Unauthorized', ['api']);
+            throw new AuthenticationException('Unauthorized', 'api');
         }
 
         return [

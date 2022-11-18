@@ -29,7 +29,6 @@ final class UpdateUser
         $args['avatar_url'] = $path;
 
         $user->update($args);
-        logger($user);
 
         return $user;
     }

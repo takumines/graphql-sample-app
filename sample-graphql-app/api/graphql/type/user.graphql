@@ -9,6 +9,8 @@ type User {
     "Unique email address."
     email: String!
 
+    password: String!
+
     "When the email was verified."
     emailVerifiedAt: DateTime @rename(attribute: "email_verified_at")
 
