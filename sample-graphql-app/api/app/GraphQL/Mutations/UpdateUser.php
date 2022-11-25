@@ -17,7 +17,9 @@ final class UpdateUser
     {
         $now = Carbon::now()->format('Y-m-d');
 
+        /** @var User $user */
         $user = auth()->user();
+        $user->avatarUrl();
 
         /**
          * @var $file UploadedFile

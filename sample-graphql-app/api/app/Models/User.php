@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -56,12 +56,11 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
-     * @param $value
-     * @return string
+     * @return Attribute
      */
-    public function getAvatarUrlAttribute($value): string
+    public function avatarUrl(): Attribute
     {
-        return asset($value);
+        return Attribute::get(fn($value) => asset($value));
     }
 
     /**
@@ -69,7 +68,7 @@ class User extends Authenticatable implements JWTSubject
      *
      * @return mixed
      */
-    public function getJWTIdentifier()
+    public function getJWTIdentifier(): mixed
     {
         return $this->getKey();
     }
