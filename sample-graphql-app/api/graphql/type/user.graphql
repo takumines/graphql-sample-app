@@ -15,7 +15,7 @@ type User {
     emailVerifiedAt: DateTime @rename(attribute: "email_verified_at")
 
     "profile image"
-    avatarUrl: String! @rename(attribute: "avatar_url")
+    avatarUrl: String @rename(attribute: "avatar_url")
 
     "When the account was created."
     createdAt: DateTime! @rename(attribute: "created_at")

@@ -59,7 +59,7 @@ class User extends Authenticatable
      */
     public function avatarUrl(): Attribute
     {
-        return Attribute::get(fn($value) => asset($value));
+        return Attribute::get(fn($value) => auth('admin_sanctum')->check() ? asset($value) : null);
     }
 
 //    /**
