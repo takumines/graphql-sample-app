@@ -3,28 +3,27 @@
 namespace App\GraphQL\Mutations;
 
 use App\Exceptions\AuthenticationException;
-use App\Models\User;
+use App\Models\Admin;
 
-
-final class Login
+final class AdminForLogin
 {
     /**
      * @param null $_
      * @param array{} $args
      * @throws AuthenticationException
      */
-    public function __invoke($_, array $args): User
+    public function __invoke($_, array $args): Admin
     {
         $credentials = [
             'email' => $args['email'],
             'password' => $args['password']
         ];
-        if (!auth('user_sanctum')->attempt($credentials)) {
+        if (! auth('admin_sanctum')->attempt($credentials)) {
             throw new AuthenticationException('Unauthorized', 'api');
         }
-        /** @var User $user */
-        $user = auth('user_sanctum')->user();
+        /** @var Admin $admin */
+        $admin = auth('admin_sanctum')->user();
 
-        return $user;
+        return $admin;
     }
 }

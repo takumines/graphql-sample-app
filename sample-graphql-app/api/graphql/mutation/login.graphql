@@ -4,5 +4,5 @@ input LoginInput @validator {
 }
 
 extend type Mutation {
-    login(input: LoginInput! @spread): LoginPayload
+    login(input: LoginInput! @spread): User!
 }

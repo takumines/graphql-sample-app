@@ -8,9 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
@@ -63,23 +62,23 @@ class User extends Authenticatable implements JWTSubject
         return Attribute::get(fn($value) => asset($value));
     }
 
-    /**
-     * jwtトークンを取得する
-     *
-     * @return mixed
-     */
-    public function getJWTIdentifier(): mixed
-    {
-        return $this->getKey();
-    }
-
-    /**
-     * jwtトークンにClaimを追加
-     *
-     * @return array
-     */
-    public function getJWTCustomClaims(): array
-    {
-        return [];
-    }
+//    /**
+//     * jwtトークンを取得する
+//     *
+//     * @return mixed
+//     */
+//    public function getJWTIdentifier(): mixed
+//    {
+//        return $this->getKey();
+//    }
+//
+//    /**
+//     * jwtトークンにClaimを追加
+//     *
+//     * @return array
+//     */
+//    public function getJWTCustomClaims(): array
+//    {
+//        return [];
+//    }
 }
